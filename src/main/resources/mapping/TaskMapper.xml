@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.friend.projectmanagement.dao.TaskMapper">
+  <resultMap id="BaseResultMap" type="com.friend.projectmanagement.entity.Task">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="disabled" jdbcType="BIT" property="disabled" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="due_time" jdbcType="TIMESTAMP" property="dueTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from task
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.friend.projectmanagement.entity.Task">
+    insert into task (id, title, disabled, 
+      content, due_time, end_time, 
+      create_time, status)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{disabled,jdbcType=BIT}, 
+      #{content,jdbcType=VARCHAR}, #{dueTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.friend.projectmanagement.entity.Task">
+    update task
+    set title = #{title,jdbcType=VARCHAR},
+      disabled = #{disabled,jdbcType=BIT},
+      content = #{content,jdbcType=VARCHAR},
+      due_time = #{dueTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, title, disabled, content, due_time, end_time, create_time, status
+    from task
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, title, disabled, content, due_time, end_time, create_time, status
+    from task
+  </select>
+</mapper>

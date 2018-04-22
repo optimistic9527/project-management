@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.friend.projectmanagement.dao.DailyRecordMapper">
+    <resultMap id="BaseResultMap" type="com.friend.projectmanagement.entity.DailyRecord">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="disabled" jdbcType="BIT" property="disabled"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_id" jdbcType="VARCHAR" property="createId"/>
+        <result column="task_id" jdbcType="VARCHAR" property="taskId"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from daily_record where id = #{id,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.friend.projectmanagement.entity.DailyRecord">
+    insert into daily_record (id, content, disabled, 
+      create_time, create_id, task_id
+      )
+    values (#{id,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{disabled,jdbcType=BIT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createId,jdbcType=VARCHAR}, #{taskId,jdbcType=VARCHAR}
+      )
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="com.friend.projectmanagement.entity.DailyRecord">
+    update daily_record
+    set content = #{content,jdbcType=VARCHAR},
+      disabled = #{disabled,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_id = #{createId,jdbcType=VARCHAR},
+      task_id = #{taskId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, content, disabled, create_time, create_id, task_id
+    from daily_record
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, content, disabled, create_time, create_id, task_id
+    from daily_record
+  </select>
+</mapper>
