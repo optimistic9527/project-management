@@ -1,6 +1,6 @@
 package com.friend.projectmanagement.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Team {
     private String id;
@@ -9,7 +9,7 @@ public class Team {
 
     private Boolean disabled;
 
-    private Date createTime;
+    private LocalDateTime createTime;
 
     private String name;
 
@@ -37,11 +37,11 @@ public class Team {
         this.disabled = disabled;
     }
 
-    public Date getCreateTime() {
+    public LocalDateTime getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(LocalDateTime createTime) {
         this.createTime = createTime;
     }
 

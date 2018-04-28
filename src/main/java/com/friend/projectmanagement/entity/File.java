@@ -1,6 +1,6 @@
 package com.friend.projectmanagement.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class File {
     private String id;
@@ -9,7 +9,7 @@ public class File {
 
     private String type;
 
-    private Date uploadTime;
+    private LocalDateTime uploadTime;
 
     public String getId() {
         return id;
@@ -35,11 +35,11 @@ public class File {
         this.type = type == null ? null : type.trim();
     }
 
-    public Date getUploadTime() {
+    public LocalDateTime getUploadTime() {
         return uploadTime;
     }
 
-    public void setUploadTime(Date uploadTime) {
+    public void setUploadTime(LocalDateTime uploadTime) {
         this.uploadTime = uploadTime;
     }
 }

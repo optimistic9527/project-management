@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.friend.projectmanagement.dao.UserMapper">
-  <resultMap id="BaseResultMap" type="com.friend.projectmanagement.entity.User">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="team_id" jdbcType="VARCHAR" property="teamId" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="last_login" jdbcType="TIMESTAMP" property="lastLogin" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="disabled" jdbcType="BIT" property="disabled" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="gender" jdbcType="BIT" property="gender" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <resultMap id="BaseResultMap" type="User">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="team_id" jdbcType="VARCHAR" property="teamId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="last_login" jdbcType="TIMESTAMP" property="lastLogin"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="disabled" jdbcType="BIT" property="disabled"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="gender" jdbcType="BIT" property="gender"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+    </resultMap>
+    <!-- 留下一个user做测试，其余的都删掉了手写好点-->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from user
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.friend.projectmanagement.entity.User">
-    insert into user (id, name, team_id, 
-      create_time, last_login, phone, 
-      disabled, password, gender, 
+    <insert id="insert" parameterType="User">
+    insert into user (id, name, team_id,
+      create_time, last_login, phone,
+      disabled, password, gender,
       email)
-    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{teamId,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{lastLogin,jdbcType=TIMESTAMP}, #{phone,jdbcType=VARCHAR}, 
-      #{disabled,jdbcType=BIT}, #{password,jdbcType=VARCHAR}, #{gender,jdbcType=BIT}, 
-      #{email,jdbcType=VARCHAR})
+    values (#{id}, #{name}, #{teamId},
+      #{createTime}, #{lastLogin}, #{phone},
+      #{disabled}, #{password}, #{gender},
+      #{email})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.friend.projectmanagement.entity.User">
+    <update id="updateByPrimaryKey" parameterType="User">
     update user
     set name = #{name,jdbcType=VARCHAR},
       team_id = #{teamId,jdbcType=VARCHAR},
@@ -40,14 +41,14 @@
       email = #{email,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select id, name, team_id, create_time, last_login, phone, disabled, password, gender, 
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, name, team_id, create_time, last_login, phone, disabled, password, gender,
     email
     from user
     where id = #{id,jdbcType=VARCHAR}
   </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, name, team_id, create_time, last_login, phone, disabled, password, gender, 
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, team_id, create_time, last_login, phone, disabled, password, gender,
     email
     from user
   </select>

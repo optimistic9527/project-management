@@ -1,9 +1,4 @@
-server:
-  port: 8080
-
+#在项目中可能会项目文件，测试本舰等等，所以这里只是指定使用哪一个文件
 spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: qaz123456.
-    url: jdbc:mysql://localhost:3306/project_manager?characterEncoding=utf-8&useSSL=false
+  profiles:
+    active: dev

@@ -1,6 +1,6 @@
 package com.friend.projectmanagement.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class DailyRecord {
     private String id;
@@ -9,7 +9,7 @@ public class DailyRecord {
 
     private Boolean disabled;
 
-    private Date createTime;
+    private LocalDateTime createTime;
 
     private String createId;
 
@@ -39,11 +39,11 @@ public class DailyRecord {
         this.disabled = disabled;
     }
 
-    public Date getCreateTime() {
+    public LocalDateTime getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(LocalDateTime createTime) {
         this.createTime = createTime;
     }
 

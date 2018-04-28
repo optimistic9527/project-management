@@ -1,38 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.friend.projectmanagement.dao.TeamMapper">
-  <resultMap id="BaseResultMap" type="com.friend.projectmanagement.entity.Team">
+  <resultMap id="BaseResultMap" type="Team">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="create_id" jdbcType="VARCHAR" property="createId" />
     <result column="disabled" jdbcType="BIT" property="disabled" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="name" jdbcType="VARCHAR" property="name" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from team
-    where id = #{id,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.friend.projectmanagement.entity.Team">
-    insert into team (id, create_id, disabled, 
-      create_time, name)
-    values (#{id,jdbcType=VARCHAR}, #{createId,jdbcType=VARCHAR}, #{disabled,jdbcType=BIT}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{name,jdbcType=VARCHAR})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.friend.projectmanagement.entity.Team">
-    update team
-    set create_id = #{createId,jdbcType=VARCHAR},
-      disabled = #{disabled,jdbcType=BIT},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      name = #{name,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select id, create_id, disabled, create_time, name
-    from team
-    where id = #{id,jdbcType=VARCHAR}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, create_id, disabled, create_time, name
-    from team
-  </select>
+
 </mapper>

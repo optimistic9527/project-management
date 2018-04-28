@@ -1,26 +1,31 @@
 package com.friend.projectmanagement.entity;
 
-import java.util.Date;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+import java.time.LocalDateTime;
+
+@ApiModel(value = "User", description = "用户信息描述")
 public class User {
+    @ApiModelProperty("用户编号")
     private String id;
-
+    @ApiModelProperty("用户名称")
     private String name;
-
+    @ApiModelProperty("团队编号")
     private String teamId;
-
-    private Date createTime;
-
-    private Date lastLogin;
-
+    @ApiModelProperty("創建时间")
+    private LocalDateTime createTime;
+    @ApiModelProperty("上次登陆时间")
+    private LocalDateTime lastLogin;
+    @ApiModelProperty("电话号码")
     private String phone;
-
+    @ApiModelProperty("是否可用")
     private Boolean disabled;
-
+    @ApiModelProperty("密码")
     private String password;
-
+    @ApiModelProperty("性别")
     private Boolean gender;
-
+    @ApiModelProperty("邮箱")
     private String email;
 
     public String getId() {
@@ -47,19 +52,19 @@ public class User {
         this.teamId = teamId == null ? null : teamId.trim();
     }
 
-    public Date getCreateTime() {
+    public LocalDateTime getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(LocalDateTime createTime) {
         this.createTime = createTime;
     }
 
-    public Date getLastLogin() {
+    public LocalDateTime getLastLogin() {
         return lastLogin;
     }
 
-    public void setLastLogin(Date lastLogin) {
+    public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
     }
 

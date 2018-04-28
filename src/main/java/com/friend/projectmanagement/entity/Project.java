@@ -1,6 +1,6 @@
 package com.friend.projectmanagement.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Project {
     private String id;
@@ -11,11 +11,11 @@ public class Project {
 
     private String teamId;
 
-    private Date dueTime;
+    private LocalDateTime dueTime;
 
-    private Date endTime;
+    private LocalDateTime endTime;
 
-    private Date createTime;
+    private LocalDateTime createTime;
 
     private String description;
 
@@ -53,27 +53,27 @@ public class Project {
         this.teamId = teamId == null ? null : teamId.trim();
     }
 
-    public Date getDueTime() {
+    public LocalDateTime getDueTime() {
         return dueTime;
     }
 
-    public void setDueTime(Date dueTime) {
+    public void setDueTime(LocalDateTime dueTime) {
         this.dueTime = dueTime;
     }
 
-    public Date getEndTime() {
+    public LocalDateTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
 
-    public Date getCreateTime() {
+    public LocalDateTime getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(LocalDateTime createTime) {
         this.createTime = createTime;
     }
 
