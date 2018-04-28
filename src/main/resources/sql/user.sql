@@ -1,1 +1,0 @@
-INSERT INTO `user`(`id`, `name`, `team_id`, `create_time`, `last_login`, `phone`, `disabled`, `password`, `gender`, `email`) VALUES ('b06288e1-a1d4-4e76-94a2-71ec3ea9105a', 'test', '1111', '2018-04-28 08:41:41', '2018-04-28 08:41:41', '111', 1, 'aaa', 0, 'aaa');
