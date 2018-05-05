@@ -9,6 +9,7 @@
     <result column="due_time" jdbcType="TIMESTAMP" property="dueTime" />
     <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="create_id" jdbcType="VARCHAR" property="createId" />
+    <result column="assignee_id" jdbcType="VARCHAR" property="assigneeId" />
   </resultMap>
 </mapper>

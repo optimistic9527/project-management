@@ -1,8 +1,13 @@
 package com.friend.projectmanagement.entity;
 
-public class Role {
-    private String id;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel(value = "Role", description = "角色信息描述")
+public class Role {
+    @ApiModelProperty("角色编号")
+    private String id;
+    @ApiModelProperty("角色名称")
     private String name;
 
     public String getId() {

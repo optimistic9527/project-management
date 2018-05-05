@@ -50,7 +50,8 @@ public class SwaggerConfig {
                 .globalResponseMessage(RequestMethod.GET, responseMessages)
                 .globalResponseMessage(RequestMethod.POST, responseMessages)
                 .globalResponseMessage(RequestMethod.PUT, responseMessages)
-                .globalResponseMessage(RequestMethod.DELETE, responseMessages);
+                .globalResponseMessage(RequestMethod.DELETE, responseMessages)
+                .globalResponseMessage(RequestMethod.PATCH, responseMessages);
     }
 
     private ApiInfo apiInfo() {

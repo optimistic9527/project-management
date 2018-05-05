@@ -1,22 +1,44 @@
 package com.friend.projectmanagement.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.time.LocalDateTime;
-
+@ApiModel(value = "DailyRecord",description = "日报详情")
 public class DailyRecord {
+    @ApiModelProperty("日报编号")
     private String id;
-
+    @ApiModelProperty("日报内容")
     private String content;
-
+    @ApiModelProperty("是否可用")
     private Boolean disabled;
-
+    @ApiModelProperty("創建时间")
     private LocalDateTime createTime;
-
+    @ApiModelProperty("创建人编号")
     private String createId;
-
+    private User createUser;
+    @ApiModelProperty("任务编号")
     private String taskId;
+    private Task task;
 
     public String getId() {
         return id;
+    }
+
+    public User getCreateUser() {
+        return createUser;
+    }
+
+    public void setCreateUser(User createUser) {
+        this.createUser = createUser;
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
     }
 
     public void setId(String id) {

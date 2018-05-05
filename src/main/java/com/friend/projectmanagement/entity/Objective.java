@@ -1,22 +1,35 @@
 package com.friend.projectmanagement.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.time.LocalDateTime;
-
+@ApiModel(value = "Objective", description = "目标描述")
 public class Objective {
+    @ApiModelProperty("目标编号")
     private String id;
-
+    @ApiModelProperty("目标描述")
     private String description;
-
+    @ApiModelProperty("标题")
     private String name;
-
+    @ApiModelProperty("项目编号")
     private String projectId;
-
+    private Project project;
+    @ApiModelProperty("是否可用")
     private Boolean disabled;
-
+    @ApiModelProperty("創建时间")
     private LocalDateTime createTime;
 
     public String getId() {
         return id;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     public void setId(String id) {
