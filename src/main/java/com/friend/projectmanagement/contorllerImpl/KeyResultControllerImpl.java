@@ -21,8 +21,8 @@ import javax.annotation.Resource;
  * @date 2018-05-10
  */
 @RestController
-@Api(tags = "")
-@RequestMapping("/key/result")
+@Api(tags = "结果控制层")
+@RequestMapping("/key_result")
 public class KeyResultControllerImpl implements KeyResultController {
 	@Resource
 	private KeyResultService keyResultService;

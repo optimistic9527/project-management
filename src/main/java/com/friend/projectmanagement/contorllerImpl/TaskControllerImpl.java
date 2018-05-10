@@ -21,7 +21,7 @@ import javax.annotation.Resource;
  * @date 2018-05-10
  */
 @RestController
-@Api(tags = "")
+@Api(tags = "任务控制层")
 @RequestMapping("/task")
 public class TaskControllerImpl implements TaskController {
 	@Resource

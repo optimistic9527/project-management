@@ -15,7 +15,7 @@
 
     </sql>
 
-    <select id="getById" resultType="com.company.project.generator.domain.KeyResult">
+    <select id="getById" resultType="KeyResult">
         SELECT
         <include refid="keyResultColumns"/>
         FROM key_result a
@@ -23,7 +23,7 @@
         WHERE a.id = #{id}
     </select>
 
-    <select id="get" resultType="com.company.project.generator.domain.KeyResult" parameterType="KeyResult">
+    <select id="get" resultType="KeyResult" parameterType="KeyResult">
         SELECT
         <include refid="keyResultColumns"/>
         FROM key_result a
@@ -33,7 +33,7 @@
         </where>
     </select>
 
-    <select id="findPage" resultType="com.company.project.generator.domain.KeyResult">
+    <select id="findPage" resultType="KeyResult">
         SELECT
         <include refid="keyResultColumns"/>
         FROM key_result a

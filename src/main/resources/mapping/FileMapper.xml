@@ -13,7 +13,7 @@
 
     </sql>
 
-    <select id="getById" resultType="com.company.project.generator.domain.File">
+    <select id="getById" resultType="File">
         SELECT
         <include refid="fileColumns"/>
         FROM file a
@@ -21,7 +21,7 @@
         WHERE a.id = #{id}
     </select>
 
-    <select id="get" resultType="com.company.project.generator.domain.File" parameterType="File">
+    <select id="get" resultType="File" parameterType="File">
         SELECT
         <include refid="fileColumns"/>
         FROM file a
@@ -31,7 +31,7 @@
         </where>
     </select>
 
-    <select id="findPage" resultType="com.company.project.generator.domain.File">
+    <select id="findPage" resultType="File">
         SELECT
         <include refid="fileColumns"/>
         FROM file a

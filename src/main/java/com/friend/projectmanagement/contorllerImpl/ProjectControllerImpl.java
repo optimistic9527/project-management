@@ -21,7 +21,7 @@ import javax.annotation.Resource;
  * @date 2018-05-10
  */
 @RestController
-@Api(tags = "")
+@Api(tags = "项目控制层")
 @RequestMapping("/project")
 public class ProjectControllerImpl implements ProjectController {
 	@Resource

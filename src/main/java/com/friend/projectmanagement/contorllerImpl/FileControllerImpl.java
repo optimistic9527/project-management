@@ -21,7 +21,7 @@ import javax.annotation.Resource;
  * @date 2018-05-10
  */
 @RestController
-@Api(tags = "")
+@Api(tags = "资源控制层")
 @RequestMapping("/file")
 public class FileControllerImpl implements FileController {
 	@Resource

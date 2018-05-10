@@ -15,7 +15,7 @@
 
     </sql>
 
-    <select id="getById" resultType="com.company.project.generator.domain.DailyRecord">
+    <select id="getById" resultType="DailyRecord">
         SELECT
         <include refid="dailyRecordColumns"/>
         FROM daily_record a
@@ -23,7 +23,7 @@
         WHERE a.id = #{id}
     </select>
 
-    <select id="get" resultType="com.company.project.generator.domain.DailyRecord" parameterType="DailyRecord">
+    <select id="get" resultType="DailyRecord" parameterType="DailyRecord">
         SELECT
         <include refid="dailyRecordColumns"/>
         FROM daily_record a
@@ -33,7 +33,7 @@
         </where>
     </select>
 
-    <select id="findPage" resultType="com.company.project.generator.domain.DailyRecord">
+    <select id="findPage" resultType="DailyRecord">
         SELECT
         <include refid="dailyRecordColumns"/>
         FROM daily_record a

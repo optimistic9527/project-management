@@ -14,7 +14,7 @@
 
     </sql>
 
-    <select id="getById" resultType="com.company.project.generator.domain.WeeklyRecord">
+    <select id="getById" resultType="WeeklyRecord">
         SELECT
         <include refid="weeklyRecordColumns"/>
         FROM weekly_record a
@@ -22,7 +22,7 @@
         WHERE a.id = #{id}
     </select>
 
-    <select id="get" resultType="com.company.project.generator.domain.WeeklyRecord" parameterType="WeeklyRecord">
+    <select id="get" resultType="WeeklyRecord" parameterType="WeeklyRecord">
         SELECT
         <include refid="weeklyRecordColumns"/>
         FROM weekly_record a
@@ -32,7 +32,7 @@
         </where>
     </select>
 
-    <select id="findPage" resultType="com.company.project.generator.domain.WeeklyRecord">
+    <select id="findPage" resultType="WeeklyRecord">
         SELECT
         <include refid="weeklyRecordColumns"/>
         FROM weekly_record a

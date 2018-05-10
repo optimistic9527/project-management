@@ -11,7 +11,7 @@
 
     </sql>
 
-    <select id="getById" resultType="com.company.project.generator.domain.RoleUser">
+    <select id="getById" resultType="RoleUser">
         SELECT
         <include refid="roleUserColumns"/>
         FROM role_user a
@@ -19,7 +19,7 @@
         WHERE a.id = #{id}
     </select>
 
-    <select id="get" resultType="com.company.project.generator.domain.RoleUser" parameterType="RoleUser">
+    <select id="get" resultType="RoleUser" parameterType="RoleUser">
         SELECT
         <include refid="roleUserColumns"/>
         FROM role_user a
@@ -29,7 +29,7 @@
         </where>
     </select>
 
-    <select id="findPage" resultType="com.company.project.generator.domain.RoleUser">
+    <select id="findPage" resultType="RoleUser">
         SELECT
         <include refid="roleUserColumns"/>
         FROM role_user a

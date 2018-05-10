@@ -21,7 +21,7 @@ import javax.annotation.Resource;
  * @date 2018-05-10
  */
 @RestController
-@Api(tags = "")
+@Api(tags = "用户控制层")
 @RequestMapping("/user")
 public class UserControllerImpl implements UserController {
 	@Resource

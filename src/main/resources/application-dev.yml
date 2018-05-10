@@ -40,4 +40,4 @@ logging:
   config: classpath:logback.xml
 mybatis:
   mapper-locations: classpath:mapping/*.xml
-  type-aliases-package: com.friend.projectmanagement.entity
+  type-aliases-package: com.friend.projectmanagement.domain

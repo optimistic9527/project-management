@@ -14,7 +14,7 @@
 
     </sql>
 
-    <select id="getById" resultType="com.company.project.generator.domain.Team">
+    <select id="getById" resultType="Team">
         SELECT
         <include refid="teamColumns"/>
         FROM team a
@@ -22,7 +22,7 @@
         WHERE a.id = #{id}
     </select>
 
-    <select id="get" resultType="com.company.project.generator.domain.Team" parameterType="Team">
+    <select id="get" resultType="Team" parameterType="Team">
         SELECT
         <include refid="teamColumns"/>
         FROM team a
@@ -32,7 +32,7 @@
         </where>
     </select>
 
-    <select id="findPage" resultType="com.company.project.generator.domain.Team">
+    <select id="findPage" resultType="Team">
         SELECT
         <include refid="teamColumns"/>
         FROM team a

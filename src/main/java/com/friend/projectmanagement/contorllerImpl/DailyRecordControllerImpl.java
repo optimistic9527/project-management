@@ -21,8 +21,8 @@ import javax.annotation.Resource;
  * @date 2018-05-10
  */
 @RestController
-@Api(tags = "")
-@RequestMapping("/daily/record")
+@Api(tags = "日报控制层")
+@RequestMapping("/daily_record")
 public class DailyRecordControllerImpl implements DailyRecordController {
 	@Resource
 	private DailyRecordService dailyRecordService;

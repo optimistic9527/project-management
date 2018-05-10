@@ -44,14 +44,13 @@ public class SwaggerConfig {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.apiInfo(apiInfo())
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.friend.projectmanagement.controller"))
+				.apis(RequestHandlerSelectors.basePackage("com.friend.projectmanagement"))
 				.paths(PathSelectors.any())
 				.build().useDefaultResponseMessages(false)
 				.globalResponseMessage(RequestMethod.GET, responseMessages)
 				.globalResponseMessage(RequestMethod.POST, responseMessages)
 				.globalResponseMessage(RequestMethod.PUT, responseMessages)
-				.globalResponseMessage(RequestMethod.DELETE, responseMessages)
-				.globalResponseMessage(RequestMethod.PATCH, responseMessages);
+				.globalResponseMessage(RequestMethod.DELETE, responseMessages);
 	}
 
 	private ApiInfo apiInfo() {

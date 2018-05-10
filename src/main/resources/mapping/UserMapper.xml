@@ -19,7 +19,7 @@
 
     </sql>
 
-    <select id="getById" resultType="com.company.project.generator.domain.User">
+    <select id="getById" resultType="User">
         SELECT
         <include refid="userColumns"/>
         FROM user a
@@ -27,7 +27,7 @@
         WHERE a.id = #{id}
     </select>
 
-    <select id="get" resultType="com.company.project.generator.domain.User" parameterType="User">
+    <select id="get" resultType="User" parameterType="User">
         SELECT
         <include refid="userColumns"/>
         FROM user a
@@ -37,7 +37,7 @@
         </where>
     </select>
 
-    <select id="findPage" resultType="com.company.project.generator.domain.User">
+    <select id="findPage" resultType="User">
         SELECT
         <include refid="userColumns"/>
         FROM user a

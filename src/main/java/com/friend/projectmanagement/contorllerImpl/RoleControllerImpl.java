@@ -21,7 +21,7 @@ import javax.annotation.Resource;
  * @date 2018-05-10
  */
 @RestController
-@Api(tags = "")
+@Api(tags = "角色控制层")
 @RequestMapping("/role")
 public class RoleControllerImpl implements RoleController {
 	@Resource

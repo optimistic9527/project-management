@@ -15,7 +15,7 @@
 
     </sql>
 
-    <select id="getById" resultType="com.company.project.generator.domain.Objective">
+    <select id="getById" resultType="Objective">
         SELECT
         <include refid="objectiveColumns"/>
         FROM objective a
@@ -23,7 +23,7 @@
         WHERE a.id = #{id}
     </select>
 
-    <select id="get" resultType="com.company.project.generator.domain.Objective" parameterType="Objective">
+    <select id="get" resultType="Objective" parameterType="Objective">
         SELECT
         <include refid="objectiveColumns"/>
         FROM objective a
@@ -33,7 +33,7 @@
         </where>
     </select>
 
-    <select id="findPage" resultType="com.company.project.generator.domain.Objective">
+    <select id="findPage" resultType="Objective">
         SELECT
         <include refid="objectiveColumns"/>
         FROM objective a

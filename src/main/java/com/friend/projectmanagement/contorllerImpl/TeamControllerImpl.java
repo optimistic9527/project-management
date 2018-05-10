@@ -21,7 +21,7 @@ import javax.annotation.Resource;
  * @date 2018-05-10
  */
 @RestController
-@Api(tags = "")
+@Api(tags = "团队控制层")
 @RequestMapping("/team")
 public class TeamControllerImpl implements TeamController {
 	@Resource

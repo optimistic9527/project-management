@@ -21,7 +21,7 @@ import javax.annotation.Resource;
  * @date 2018-05-10
  */
 @RestController
-@Api(tags = "")
+@Api(tags = "目标控制层")
 @RequestMapping("/objective")
 public class ObjectiveControllerImpl implements ObjectiveController {
 	@Resource

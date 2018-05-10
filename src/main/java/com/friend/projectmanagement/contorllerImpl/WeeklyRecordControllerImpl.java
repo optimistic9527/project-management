@@ -21,8 +21,8 @@ import javax.annotation.Resource;
  * @date 2018-05-10
  */
 @RestController
-@Api(tags = "")
-@RequestMapping("/weekly/record")
+@Api(tags = "周报控制层")
+@RequestMapping("/weekly_record")
 public class WeeklyRecordControllerImpl implements WeeklyRecordController {
 	@Resource
 	private WeeklyRecordService weeklyRecordService;

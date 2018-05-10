@@ -19,7 +19,7 @@
 
     </sql>
 
-    <select id="getById" resultType="com.company.project.generator.domain.Task">
+    <select id="getById" resultType="Task">
         SELECT
         <include refid="taskColumns"/>
         FROM task a
@@ -27,7 +27,7 @@
         WHERE a.id = #{id}
     </select>
 
-    <select id="get" resultType="com.company.project.generator.domain.Task" parameterType="Task">
+    <select id="get" resultType="Task" parameterType="Task">
         SELECT
         <include refid="taskColumns"/>
         FROM task a
@@ -37,7 +37,7 @@
         </where>
     </select>
 
-    <select id="findPage" resultType="com.company.project.generator.domain.Task">
+    <select id="findPage" resultType="Task">
         SELECT
         <include refid="taskColumns"/>
         FROM task a
