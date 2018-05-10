@@ -1,8 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.friend.projectmanagement.dao.RoleUserMapper">
-  <resultMap id="BaseResultMap" type="RoleUser">
-    <id column="role_id" jdbcType="VARCHAR" property="roleId" />
-    <result column="user_id" jdbcType="VARCHAR" property="userId" />
-  </resultMap>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.friend.projectmanagement.dao.RoleUserDao">
+
+    <sql id="roleUserColumns">
+        a.role_id roleId,
+        a.user_id userId
+    </sql>
+
+    <sql id="roleUserJoins">
+
+    </sql>
+
+    <select id="getById" resultType="com.company.project.generator.domain.RoleUser">
+        SELECT
+        <include refid="roleUserColumns"/>
+        FROM role_user a
+        <include refid="roleUserJoins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="get" resultType="com.company.project.generator.domain.RoleUser" parameterType="RoleUser">
+        SELECT
+        <include refid="roleUserColumns"/>
+        FROM role_user a
+        <include refid="roleUserJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <select id="findPage" resultType="com.company.project.generator.domain.RoleUser">
+        SELECT
+        <include refid="roleUserColumns"/>
+        FROM role_user a
+        <include refid="roleUserJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO role_user (
+        role_id,
+        user_id
+        ) VALUES (
+        #{roleId},
+        #{userId}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE role_user SET
+        <if test="roleId != null and roleId != ''">
+            role_id = #{roleId},
+        </if>
+        <if test="userId != null and userId != ''">
+            user_id = #{userId}
+        </if>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM role_user
+        WHERE id = #{id}
+    </delete>
 </mapper>

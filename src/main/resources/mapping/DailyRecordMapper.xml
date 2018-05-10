@@ -1,13 +1,91 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.friend.projectmanagement.dao.DailyRecordMapper">
-  <resultMap id="BaseResultMap" type="DailyRecord">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="disabled" jdbcType="BIT" property="disabled" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="create_id" jdbcType="VARCHAR" property="createId" />
-    <result column="task_id" jdbcType="VARCHAR" property="taskId" />
-  </resultMap>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.friend.projectmanagement.dao.DailyRecordDao">
 
+    <sql id="dailyRecordColumns">
+        a.id id,
+        a.content content,
+        a.disabled disabled,
+        a.create_time createTime,
+        a.create_id createId,
+        a.task_id taskId
+    </sql>
+
+    <sql id="dailyRecordJoins">
+
+    </sql>
+
+    <select id="getById" resultType="com.company.project.generator.domain.DailyRecord">
+        SELECT
+        <include refid="dailyRecordColumns"/>
+        FROM daily_record a
+        <include refid="dailyRecordJoins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="get" resultType="com.company.project.generator.domain.DailyRecord" parameterType="DailyRecord">
+        SELECT
+        <include refid="dailyRecordColumns"/>
+        FROM daily_record a
+        <include refid="dailyRecordJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <select id="findPage" resultType="com.company.project.generator.domain.DailyRecord">
+        SELECT
+        <include refid="dailyRecordColumns"/>
+        FROM daily_record a
+        <include refid="dailyRecordJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO daily_record (
+        id,
+        content,
+        disabled,
+        create_time,
+        create_id,
+        task_id
+        ) VALUES (
+        #{id},
+        #{content},
+        #{disabled},
+        #{createTime},
+        #{createId},
+        #{taskId}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE daily_record SET
+        <if test="id != null and id != ''">
+            id = #{id},
+        </if>
+        <if test="content != null and content != ''">
+            content = #{content},
+        </if>
+        <if test="disabled != null">
+            disabled = #{disabled},
+        </if>
+        <if test="createTime != null">
+            create_time = #{createTime},
+        </if>
+        <if test="createId != null and createId != ''">
+            create_id = #{createId},
+        </if>
+        <if test="taskId != null and taskId != ''">
+            task_id = #{taskId}
+        </if>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM daily_record
+        WHERE id = #{id}
+    </delete>
 </mapper>

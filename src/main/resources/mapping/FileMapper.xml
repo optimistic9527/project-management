@@ -1,11 +1,79 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.friend.projectmanagement.dao.FileMapper">
-  <resultMap id="BaseResultMap" type="File">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="path" jdbcType="VARCHAR" property="path" />
-    <result column="type" jdbcType="VARCHAR" property="type" />
-    <result column="upload_time" jdbcType="TIMESTAMP" property="uploadTime" />
-  </resultMap>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.friend.projectmanagement.dao.FileDao">
 
+    <sql id="fileColumns">
+        a.id id,
+        a.path path,
+        a.type type,
+        a.upload_time uploadTime
+    </sql>
+
+    <sql id="fileJoins">
+
+    </sql>
+
+    <select id="getById" resultType="com.company.project.generator.domain.File">
+        SELECT
+        <include refid="fileColumns"/>
+        FROM file a
+        <include refid="fileJoins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="get" resultType="com.company.project.generator.domain.File" parameterType="File">
+        SELECT
+        <include refid="fileColumns"/>
+        FROM file a
+        <include refid="fileJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <select id="findPage" resultType="com.company.project.generator.domain.File">
+        SELECT
+        <include refid="fileColumns"/>
+        FROM file a
+        <include refid="fileJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO file (
+        id,
+        path,
+        type,
+        upload_time
+        ) VALUES (
+        #{id},
+        #{path},
+        #{type},
+        #{uploadTime}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE file SET
+        <if test="id != null and id != ''">
+            id = #{id},
+        </if>
+        <if test="path != null and path != ''">
+            path = #{path},
+        </if>
+        <if test="type != null and type != ''">
+            type = #{type},
+        </if>
+        <if test="uploadTime != null">
+            upload_time = #{uploadTime}
+        </if>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM file
+        WHERE id = #{id}
+    </delete>
 </mapper>

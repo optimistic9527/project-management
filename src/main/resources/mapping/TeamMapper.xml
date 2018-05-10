@@ -1,12 +1,85 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.friend.projectmanagement.dao.TeamMapper">
-  <resultMap id="BaseResultMap" type="Team">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="create_id" jdbcType="VARCHAR" property="createId" />
-    <result column="disabled" jdbcType="BIT" property="disabled" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-  </resultMap>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.friend.projectmanagement.dao.TeamDao">
 
+    <sql id="teamColumns">
+        a.id id,
+        a.create_id createId,
+        a.disabled disabled,
+        a.create_time createTime,
+        a.name name
+    </sql>
+
+    <sql id="teamJoins">
+
+    </sql>
+
+    <select id="getById" resultType="com.company.project.generator.domain.Team">
+        SELECT
+        <include refid="teamColumns"/>
+        FROM team a
+        <include refid="teamJoins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="get" resultType="com.company.project.generator.domain.Team" parameterType="Team">
+        SELECT
+        <include refid="teamColumns"/>
+        FROM team a
+        <include refid="teamJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <select id="findPage" resultType="com.company.project.generator.domain.Team">
+        SELECT
+        <include refid="teamColumns"/>
+        FROM team a
+        <include refid="teamJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO team (
+        id,
+        create_id,
+        disabled,
+        create_time,
+        name
+        ) VALUES (
+        #{id},
+        #{createId},
+        #{disabled},
+        #{createTime},
+        #{name}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE team SET
+        <if test="id != null and id != ''">
+            id = #{id},
+        </if>
+        <if test="createId != null and createId != ''">
+            create_id = #{createId},
+        </if>
+        <if test="disabled != null">
+            disabled = #{disabled},
+        </if>
+        <if test="createTime != null">
+            create_time = #{createTime},
+        </if>
+        <if test="name != null and name != ''">
+            name = #{name}
+        </if>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM team
+        WHERE id = #{id}
+    </delete>
 </mapper>

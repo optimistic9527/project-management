@@ -7,5 +7,5 @@ package com.friend.projectmanagement.util;
  **/
 public class Const {
 	//加密用的盐，随意填写，复杂点就行
-	public static final String SALT="";
+	public static final String SALT = "";
 }

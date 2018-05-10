@@ -1,16 +1,109 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.friend.projectmanagement.dao.ProjectMapper">
-  <resultMap id="BaseResultMap" type="Project">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="disabled" jdbcType="BIT" property="disabled" />
-    <result column="team_id" jdbcType="VARCHAR" property="teamId" />
-    <result column="due_time" jdbcType="TIMESTAMP" property="dueTime" />
-    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="description" jdbcType="VARCHAR" property="description" />
-    <result column="status" jdbcType="TINYINT" property="status" />
-  </resultMap>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.friend.projectmanagement.dao.dao.ProjectDao">
 
+    <sql id="projectColumns">
+        a.id id,
+        a.name name,
+        a.disabled disabled,
+        a.team_id teamId,
+        a.due_time dueTime,
+        a.end_time endTime,
+        a.create_time createTime,
+        a.description description,
+        a.status status
+    </sql>
+
+    <sql id="projectJoins">
+
+    </sql>
+
+    <select id="getById" resultType="com.company.project.generator.domain.Project">
+        SELECT
+        <include refid="projectColumns"/>
+        FROM project a
+        <include refid="projectJoins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="get" resultType="com.company.project.generator.domain.Project" parameterType="Project">
+        SELECT
+        <include refid="projectColumns"/>
+        FROM project a
+        <include refid="projectJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <select id="findPage" resultType="com.company.project.generator.domain.Project">
+        SELECT
+        <include refid="projectColumns"/>
+        FROM project a
+        <include refid="projectJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO project (
+        id,
+        name,
+        disabled,
+        team_id,
+        due_time,
+        end_time,
+        create_time,
+        description,
+        status
+        ) VALUES (
+        #{id},
+        #{name},
+        #{disabled},
+        #{teamId},
+        #{dueTime},
+        #{endTime},
+        #{createTime},
+        #{description},
+        #{status}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE project SET
+        <if test="id != null and id != ''">
+            id = #{id},
+        </if>
+        <if test="name != null and name != ''">
+            name = #{name},
+        </if>
+        <if test="disabled != null">
+            disabled = #{disabled},
+        </if>
+        <if test="teamId != null and teamId != ''">
+            team_id = #{teamId},
+        </if>
+        <if test="dueTime != null">
+            due_time = #{dueTime},
+        </if>
+        <if test="endTime != null">
+            end_time = #{endTime},
+        </if>
+        <if test="createTime != null">
+            create_time = #{createTime},
+        </if>
+        <if test="description != null and description != ''">
+            description = #{description},
+        </if>
+        <if test="status != null">
+            status = #{status}
+        </if>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM project
+        WHERE id = #{id}
+    </delete>
 </mapper>

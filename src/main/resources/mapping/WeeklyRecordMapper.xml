@@ -1,11 +1,85 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.friend.projectmanagement.dao.WeeklyRecordMapper">
-  <resultMap id="BaseResultMap" type="WeeklyRecord">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="disabled" jdbcType="BIT" property="disabled" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="create_id" jdbcType="VARCHAR" property="createId" />
-  </resultMap>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.friend.projectmanagement.dao.WeeklyRecordDao">
+
+    <sql id="weeklyRecordColumns">
+        a.id id,
+        a.content content,
+        a.disabled disabled,
+        a.create_time createTime,
+        a.create_id createId
+    </sql>
+
+    <sql id="weeklyRecordJoins">
+
+    </sql>
+
+    <select id="getById" resultType="com.company.project.generator.domain.WeeklyRecord">
+        SELECT
+        <include refid="weeklyRecordColumns"/>
+        FROM weekly_record a
+        <include refid="weeklyRecordJoins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="get" resultType="com.company.project.generator.domain.WeeklyRecord" parameterType="WeeklyRecord">
+        SELECT
+        <include refid="weeklyRecordColumns"/>
+        FROM weekly_record a
+        <include refid="weeklyRecordJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <select id="findPage" resultType="com.company.project.generator.domain.WeeklyRecord">
+        SELECT
+        <include refid="weeklyRecordColumns"/>
+        FROM weekly_record a
+        <include refid="weeklyRecordJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO weekly_record (
+        id,
+        content,
+        disabled,
+        create_time,
+        create_id
+        ) VALUES (
+        #{id},
+        #{content},
+        #{disabled},
+        #{createTime},
+        #{createId}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE weekly_record SET
+        <if test="id != null and id != ''">
+            id = #{id},
+        </if>
+        <if test="content != null and content != ''">
+            content = #{content},
+        </if>
+        <if test="disabled != null">
+            disabled = #{disabled},
+        </if>
+        <if test="createTime != null">
+            create_time = #{createTime},
+        </if>
+        <if test="createId != null and createId != ''">
+            create_id = #{createId}
+        </if>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM weekly_record
+        WHERE id = #{id}
+    </delete>
 </mapper>

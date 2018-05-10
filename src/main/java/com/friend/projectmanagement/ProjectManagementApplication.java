@@ -11,24 +11,23 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.HttpMessageConverter;
 
 
-
 @SpringBootApplication
 @MapperScan("com.friend.projectmanagement.dao")
 public class ProjectManagementApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(ProjectManagementApplication.class, args);
+	public static void main(String[] args) {
+		SpringApplication.run(ProjectManagementApplication.class, args);
 
-    }
+	}
 
-    @Bean //用于全局的fastJson
-    public HttpMessageConverters fastJsonHttpMessageConverters() {
-        FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
-        FastJsonConfig fastJsonConfig = new FastJsonConfig();
-        fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat, SerializerFeature.WriteMapNullValue, SerializerFeature.WriteNullListAsEmpty, SerializerFeature.WriteNullNumberAsZero, SerializerFeature.WriteNullBooleanAsFalse, SerializerFeature.WriteNullStringAsEmpty);
-        fastConverter.setFastJsonConfig(fastJsonConfig);
-        // 返回HttpMessageConvert对象
-        HttpMessageConverter<?> converter = fastConverter;
-        return new HttpMessageConverters(converter);
-    }
+	@Bean //用于全局的fastJson
+	public HttpMessageConverters fastJsonHttpMessageConverters() {
+		FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
+		FastJsonConfig fastJsonConfig = new FastJsonConfig();
+		fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat, SerializerFeature.WriteMapNullValue, SerializerFeature.WriteNullListAsEmpty, SerializerFeature.WriteNullNumberAsZero, SerializerFeature.WriteNullBooleanAsFalse, SerializerFeature.WriteNullStringAsEmpty);
+		fastConverter.setFastJsonConfig(fastJsonConfig);
+		// 返回HttpMessageConvert对象
+		HttpMessageConverter<?> converter = fastConverter;
+		return new HttpMessageConverters(converter);
+	}
 }

@@ -16,7 +16,7 @@ public abstract class SecurityUtil {
 	public static String passwodrMD5Encode(String origin, String charsetName) {
 		String resultString = null;
 		try {
-			resultString = origin+Const.SALT;
+			resultString = origin + Const.SALT;
 			MessageDigest md = MessageDigest.getInstance("MD5");
 			if (charsetName == null || "".equals(charsetName))
 				resultString = byteArrayToHexString(md.digest(resultString

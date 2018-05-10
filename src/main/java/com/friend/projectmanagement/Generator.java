@@ -14,18 +14,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @descrpition 用于逆向生成实体类
  * @author gxy
+ * @descrpition 用于逆向生成实体类
  * @create 2018-04-22 17:43
  **/
 public class Generator {
-    public static void main(String[] args) throws InterruptedException, SQLException, IOException, InvalidConfigurationException, XMLParserException {
-        List<String> warnings = new ArrayList<>();
-        File configFile = new File("F:\\IdeaProjects\\project-management\\src\\main\\resources\\generatorConfig.xml");
-        ConfigurationParser cp = new ConfigurationParser(warnings);
-        Configuration config = cp.parseConfiguration(configFile);
-        DefaultShellCallback callback = new DefaultShellCallback(true);
-        MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
-        myBatisGenerator.generate(null);
-    }
+	public static void main(String[] args) throws InterruptedException, SQLException, IOException, InvalidConfigurationException, XMLParserException {
+		List<String> warnings = new ArrayList<>();
+		File configFile = new File("F:\\IdeaProjects\\project-management\\src\\main\\resources\\generatorConfig.xml");
+		ConfigurationParser cp = new ConfigurationParser(warnings);
+		Configuration config = cp.parseConfiguration(configFile);
+		DefaultShellCallback callback = new DefaultShellCallback(true);
+		MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
+		myBatisGenerator.generate(null);
+	}
 }

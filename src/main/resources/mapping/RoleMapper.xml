@@ -1,9 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.friend.projectmanagement.dao.RoleMapper">
-  <resultMap id="BaseResultMap" type="Role">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-  </resultMap>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.friend.projectmanagement.dao.dao.RoleDao">
 
+    <sql id="roleColumns">
+        a.id id,
+        a.name name
+    </sql>
+
+    <sql id="roleJoins">
+
+    </sql>
+
+    <select id="getById" resultType="com.company.project.generator.domain.Role">
+        SELECT
+        <include refid="roleColumns"/>
+        FROM role a
+        <include refid="roleJoins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="get" resultType="com.company.project.generator.domain.Role" parameterType="Role">
+        SELECT
+        <include refid="roleColumns"/>
+        FROM role a
+        <include refid="roleJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <select id="findPage" resultType="com.company.project.generator.domain.Role">
+        SELECT
+        <include refid="roleColumns"/>
+        FROM role a
+        <include refid="roleJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO role (
+        id,
+        name
+        ) VALUES (
+        #{id},
+        #{name}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE role SET
+        <if test="id != null and id != ''">
+            id = #{id},
+        </if>
+        <if test="name != null and name != ''">
+            name = #{name}
+        </if>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM role
+        WHERE id = #{id}
+    </delete>
 </mapper>

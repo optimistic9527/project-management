@@ -1,15 +1,115 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.friend.projectmanagement.dao.TaskMapper">
-  <resultMap id="BaseResultMap" type="Task">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="title" jdbcType="VARCHAR" property="title" />
-    <result column="disabled" jdbcType="BIT" property="disabled" />
-    <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="due_time" jdbcType="TIMESTAMP" property="dueTime" />
-    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="create_id" jdbcType="VARCHAR" property="createId" />
-    <result column="assignee_id" jdbcType="VARCHAR" property="assigneeId" />
-  </resultMap>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.friend.projectmanagement.dao.TaskDao">
+
+    <sql id="taskColumns">
+        a.id id,
+        a.title title,
+        a.disabled disabled,
+        a.content content,
+        a.due_time dueTime,
+        a.end_time endTime,
+        a.create_time createTime,
+        a.status status,
+        a.create_id createId,
+        a.assignee_id assigneeId
+    </sql>
+
+    <sql id="taskJoins">
+
+    </sql>
+
+    <select id="getById" resultType="com.company.project.generator.domain.Task">
+        SELECT
+        <include refid="taskColumns"/>
+        FROM task a
+        <include refid="taskJoins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="get" resultType="com.company.project.generator.domain.Task" parameterType="Task">
+        SELECT
+        <include refid="taskColumns"/>
+        FROM task a
+        <include refid="taskJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <select id="findPage" resultType="com.company.project.generator.domain.Task">
+        SELECT
+        <include refid="taskColumns"/>
+        FROM task a
+        <include refid="taskJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO task (
+        id,
+        title,
+        disabled,
+        content,
+        due_time,
+        end_time,
+        create_time,
+        status,
+        create_id,
+        assignee_id
+        ) VALUES (
+        #{id},
+        #{title},
+        #{disabled},
+        #{content},
+        #{dueTime},
+        #{endTime},
+        #{createTime},
+        #{status},
+        #{createId},
+        #{assigneeId}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE task SET
+        <if test="id != null and id != ''">
+            id = #{id},
+        </if>
+        <if test="title != null and title != ''">
+            title = #{title},
+        </if>
+        <if test="disabled != null">
+            disabled = #{disabled},
+        </if>
+        <if test="content != null and content != ''">
+            content = #{content},
+        </if>
+        <if test="dueTime != null">
+            due_time = #{dueTime},
+        </if>
+        <if test="endTime != null">
+            end_time = #{endTime},
+        </if>
+        <if test="createTime != null">
+            create_time = #{createTime},
+        </if>
+        <if test="status != null">
+            status = #{status},
+        </if>
+        <if test="createId != null and createId != ''">
+            create_id = #{createId},
+        </if>
+        <if test="assigneeId != null and assigneeId != ''">
+            assignee_id = #{assigneeId}
+        </if>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM task
+        WHERE id = #{id}
+    </delete>
 </mapper>

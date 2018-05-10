@@ -52,6 +52,12 @@
             <artifactId>mapper-spring-boot-starter</artifactId>
             <version>${mybatis-tk.version}</version>
         </dependency>
+        <!-- 分页工具-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>4.2.1</version>
+        </dependency>
         <!-- alibaba的druid数据库连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>

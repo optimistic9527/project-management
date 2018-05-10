@@ -1,13 +1,91 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.friend.projectmanagement.dao.ObjectiveMapper">
-  <resultMap id="BaseResultMap" type="Objective">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="description" jdbcType="VARCHAR" property="description" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="project_id" jdbcType="VARCHAR" property="projectId" />
-    <result column="disabled" jdbcType="BIT" property="disabled" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-  </resultMap>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.friend.projectmanagement.dao.ObjectiveDao">
 
+    <sql id="objectiveColumns">
+        a.id id,
+        a.description description,
+        a.name name,
+        a.project_id projectId,
+        a.disabled disabled,
+        a.create_time createTime
+    </sql>
+
+    <sql id="objectiveJoins">
+
+    </sql>
+
+    <select id="getById" resultType="com.company.project.generator.domain.Objective">
+        SELECT
+        <include refid="objectiveColumns"/>
+        FROM objective a
+        <include refid="objectiveJoins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="get" resultType="com.company.project.generator.domain.Objective" parameterType="Objective">
+        SELECT
+        <include refid="objectiveColumns"/>
+        FROM objective a
+        <include refid="objectiveJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <select id="findPage" resultType="com.company.project.generator.domain.Objective">
+        SELECT
+        <include refid="objectiveColumns"/>
+        FROM objective a
+        <include refid="objectiveJoins"/>
+        <where>
+
+        </where>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO objective (
+        id,
+        description,
+        name,
+        project_id,
+        disabled,
+        create_time
+        ) VALUES (
+        #{id},
+        #{description},
+        #{name},
+        #{projectId},
+        #{disabled},
+        #{createTime}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE objective SET
+        <if test="id != null and id != ''">
+            id = #{id},
+        </if>
+        <if test="description != null and description != ''">
+            description = #{description},
+        </if>
+        <if test="name != null and name != ''">
+            name = #{name},
+        </if>
+        <if test="projectId != null and projectId != ''">
+            project_id = #{projectId},
+        </if>
+        <if test="disabled != null">
+            disabled = #{disabled},
+        </if>
+        <if test="createTime != null">
+            create_time = #{createTime}
+        </if>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM objective
+        WHERE id = #{id}
+    </delete>
 </mapper>
