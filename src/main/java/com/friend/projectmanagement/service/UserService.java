@@ -72,4 +72,13 @@ public interface UserService {
 	 * @return Page<UserDTO> 分页信息
 	 */
 	PageInfo<UserDTO> findPage(int pageNum, int pageSize);
+
+	/**
+	 * 根据用户名密码查找用户
+	 *
+	 * @param username
+	 * @param pwd
+	 * @return
+	 */
+	UserDTO findUserByUsernamePassword(String username, String pwd);
 }

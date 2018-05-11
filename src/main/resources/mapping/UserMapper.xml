@@ -3,16 +3,16 @@
 <mapper namespace="com.friend.projectmanagement.dao.UserDao">
 
     <sql id="userColumns">
-        a.id id,
-        a.name name,
-        a.team_id teamId,
-        a.create_time createTime,
-        a.last_login lastLogin,
-        a.phone phone,
-        a.disabled disabled,
-        a.password password,
-        a.gender gender,
-        a.email email
+        user.id id,
+        user.name name,
+        user.team_id teamId,
+        user.create_time createTime,
+        user.last_login lastLogin,
+        user.phone phone,
+        user.disabled disabled,
+        user.password password,
+        user.gender gender,
+        user.email email
     </sql>
 
     <sql id="userJoins">
@@ -22,15 +22,15 @@
     <select id="getById" resultType="User">
         SELECT
         <include refid="userColumns"/>
-        FROM user a
+        FROM user
         <include refid="userJoins"/>
-        WHERE a.id = #{id}
+        WHERE user.id = #{id}
     </select>
 
     <select id="get" resultType="User" parameterType="User">
         SELECT
         <include refid="userColumns"/>
-        FROM user a
+        FROM user
         <include refid="userJoins"/>
         <where>
 
@@ -40,14 +40,14 @@
     <select id="findPage" resultType="User">
         SELECT
         <include refid="userColumns"/>
-        FROM user a
+        FROM user
         <include refid="userJoins"/>
         <where>
 
         </where>
     </select>
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insert" parameterType="User">
         INSERT INTO user (
         id,
         name,
@@ -60,16 +60,16 @@
         gender,
         email
         ) VALUES (
-        #{id},
-        #{name},
-        #{teamId},
-        #{createTime},
-        #{lastLogin},
-        #{phone},
-        #{disabled},
-        #{password},
-        #{gender},
-        #{email}
+        #{id,jdbcType=VARCHAR},
+        #{name,jdbcType=VARCHAR},
+        #{teamId,jdbcType=VARCHAR},
+        #{createTime,jdbcType=TIMESTAMP},
+        #{lastLogin,jdbcType=TIMESTAMP},
+        #{phone,jdbcType=VARCHAR},
+        #{disabled,jdbcType=TINYINT},
+        #{password,jdbcType=VARCHAR},
+        #{gender,jdbcType=TINYINT},
+        #{email,jdbcType=VARCHAR}
         )
     </insert>
 
@@ -112,4 +112,10 @@
         DELETE FROM user
         WHERE id = #{id}
     </delete>
+
+    <select id="selectByUsernamePassword" resultType="User">
+        SELECT
+        <include refid="userColumns"/>
+        FROM user WHERE name=#{username} AND password=#{password} AND disabled=0
+    </select>
 </mapper>

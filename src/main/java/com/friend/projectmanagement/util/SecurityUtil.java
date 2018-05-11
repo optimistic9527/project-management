@@ -13,7 +13,7 @@ import java.security.MessageDigest;
 public abstract class SecurityUtil {
 	private final static Logger log = LoggerFactory.getLogger(SecurityUtil.class);
 
-	public static String passwodrMD5Encode(String origin, String charsetName) {
+	public static String passwordMD5Encode(String origin, String charsetName) {
 		String resultString = null;
 		try {
 			resultString = origin + Const.SALT;

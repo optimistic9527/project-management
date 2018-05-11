@@ -5,7 +5,7 @@ package com.friend.projectmanagement.util;
  * @description RandomUUID生成的Id影响后期数据库查询效率，所以统一使用SnowFlake算法统一生成Id
  * @create 2018-05-2 16:55
  */
-public class SnowFlakeIdGenerator {
+public final class SnowFlakeIdGenerator {
 	//初始时间截 (2018-01-01)
 	private static final long INITIAL_TIME_STAMP = 1514736000000L;
 	//机器id所占的位数

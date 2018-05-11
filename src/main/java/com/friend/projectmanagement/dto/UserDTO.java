@@ -34,6 +34,7 @@ public class UserDTO {
 	@ApiModelProperty(notes = "电话号码")
 	private String phone;
 
+	//只做登陆的时候的接收，不向外提供密码
 	@ApiModelProperty(notes = "密码")
 	private String password;
 

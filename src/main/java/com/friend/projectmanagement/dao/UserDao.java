@@ -1,6 +1,8 @@
 package com.friend.projectmanagement.dao;
 
 
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**
@@ -77,4 +79,13 @@ public interface UserDao<User> {
 	 * @return List<User> 记录集
 	 */
 	List<User> findList(User user);
+
+	/**
+	 * 用户名密码查找
+	 *
+	 * @param username
+	 * @param pwd
+	 * @return
+	 */
+	User selectByUsernamePassword(@Param("username") String username, @Param("password") String pwd);
 }

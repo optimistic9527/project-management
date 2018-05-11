@@ -50,4 +50,21 @@ public interface UserController {
 	 * @return
 	 */
 	String listPage(int pageSize, int pageNum);
+
+	/**
+	 * 用户登陆接口
+	 *
+	 * @param username 用户名
+	 * @param password 密码
+	 * @return 登陆结果
+	 */
+	String signIn(String username, String password);
+
+	/**
+	 * 用户注册接口
+	 *
+	 * @param userDTO 用户传输数据
+	 * @return
+	 */
+	String signUp(UserDTO userDTO);
 }
