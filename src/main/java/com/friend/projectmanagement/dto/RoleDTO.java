@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @author gxy_code_tool
  * @date 2018-05-10
  */
-@ApiModel(value = "Role", description = "角色信息描述")
+@ApiModel(value = "RoleDTO", description = "角色信息描述")
 public class RoleDTO {
 
 	@ApiModelProperty("角色编号")

@@ -1,6 +1,5 @@
 package com.friend.projectmanagement.dto;
 
-import com.friend.projectmanagement.domain.User;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -12,7 +11,7 @@ import java.time.LocalDateTime;
  * @author gxy_code_tool
  * @date 2018-05-10
  */
-@ApiModel(value = "Task", description = "用户任务描述")
+@ApiModel(value = "TaskDTO", description = "用户任务描述")
 public class TaskDTO {
 
 	@ApiModelProperty(notes = "任务编号")
@@ -36,11 +35,11 @@ public class TaskDTO {
 	@ApiModelProperty(notes = "任务状态")
 	private Byte status;
 
-	@ApiModelProperty(notes = "创建人")
-	private User createUser;
+	@ApiModelProperty(notes = "创建人", dataType = "UserDTO")
+	private UserDTO createUserDTO;
 
-	@ApiModelProperty(notes = "分配人")
-	private User assigneeUser;
+	@ApiModelProperty(notes = "分配人", dataType = "UserDTO")
+	private UserDTO assigneeUserDTO;
 
 
 	public String getId() {
@@ -99,19 +98,19 @@ public class TaskDTO {
 		this.status = status;
 	}
 
-	public User getCreateUser() {
-		return createUser;
+	public UserDTO getCreateUserDTO() {
+		return createUserDTO;
 	}
 
-	public void setCreateUser(User createUser) {
-		this.createUser = createUser;
+	public void setCreateUserDTO(UserDTO createUserDTO) {
+		this.createUserDTO = createUserDTO;
 	}
 
-	public User getAssigneeUser() {
-		return assigneeUser;
+	public UserDTO getAssigneeUserDTO() {
+		return assigneeUserDTO;
 	}
 
-	public void setAssigneeUser(User assigneeUser) {
-		this.assigneeUser = assigneeUser;
+	public void setAssigneeUserDTO(UserDTO assigneeUserDTO) {
+		this.assigneeUserDTO = assigneeUserDTO;
 	}
 }

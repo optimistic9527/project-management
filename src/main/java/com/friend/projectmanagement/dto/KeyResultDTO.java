@@ -1,6 +1,5 @@
 package com.friend.projectmanagement.dto;
 
-import com.friend.projectmanagement.domain.Objective;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -12,7 +11,7 @@ import java.time.LocalDateTime;
  * @author gxy_code_tool
  * @date 2018-05-10
  */
-@ApiModel(value = "KeyResult", description = "结果描述")
+@ApiModel(value = "KeyResultDTO", description = "结果描述")
 public class KeyResultDTO {
 
 	@ApiModelProperty("结果编号")
@@ -24,8 +23,8 @@ public class KeyResultDTO {
 	@ApiModelProperty("标题")
 	private String name;
 
-	@ApiModelProperty(notes = "所在目标")
-	private Objective objective;
+	@ApiModelProperty(notes = "所在目标", dataType = "ObjectiveDTO")
+	private ObjectiveDTO objectiveDTO;
 
 	@ApiModelProperty(notes = "创建时间")
 	private LocalDateTime createTime;
@@ -57,13 +56,12 @@ public class KeyResultDTO {
 		this.name = name;
 	}
 
-
-	public Objective getObjective() {
-		return objective;
+	public ObjectiveDTO getObjectiveDTO() {
+		return objectiveDTO;
 	}
 
-	public void setObjective(Objective objective) {
-		this.objective = objective;
+	public void setObjectiveDTO(ObjectiveDTO objectiveDTO) {
+		this.objectiveDTO = objectiveDTO;
 	}
 
 	public LocalDateTime getCreateTime() {

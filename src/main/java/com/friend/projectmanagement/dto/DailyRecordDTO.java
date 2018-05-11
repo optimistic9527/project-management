@@ -1,7 +1,5 @@
 package com.friend.projectmanagement.dto;
 
-import com.friend.projectmanagement.domain.Task;
-import com.friend.projectmanagement.domain.User;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -13,7 +11,7 @@ import java.time.LocalDateTime;
  * @author gxy_code_tool
  * @date 2018-05-10
  */
-@ApiModel(value = "DailyRecord", description = "日报详情")
+@ApiModel(value = "DailyRecordDTO", description = "日报详情")
 public class DailyRecordDTO {
 
 	@ApiModelProperty("日报编号")
@@ -25,11 +23,11 @@ public class DailyRecordDTO {
 	@ApiModelProperty(notes = "創建时间")
 	private LocalDateTime createTime;
 
-	@ApiModelProperty(notes = "创建人")
-	private User createUser;
+	@ApiModelProperty(notes = "创建人", dataType = "UserDTO")
+	private UserDTO createUserDTO;
 
-	@ApiModelProperty(notes = "日报所在任务")
-	private Task task;
+	@ApiModelProperty(notes = "日报所在任务", dataType = "TaskDTO")
+	private TaskDTO taskDTO;
 
 	public String getId() {
 		return id;
@@ -55,19 +53,19 @@ public class DailyRecordDTO {
 		this.createTime = createTime;
 	}
 
-	public User getCreateUser() {
-		return createUser;
+	public UserDTO getCreateUserDTO() {
+		return createUserDTO;
 	}
 
-	public void setCreateUser(User createUser) {
-		this.createUser = createUser;
+	public void setCreateUserDTO(UserDTO createUserDTO) {
+		this.createUserDTO = createUserDTO;
 	}
 
-	public Task getTask() {
-		return task;
+	public TaskDTO getTaskDTO() {
+		return taskDTO;
 	}
 
-	public void setTask(Task task) {
-		this.task = task;
+	public void setTaskDTO(TaskDTO taskDTO) {
+		this.taskDTO = taskDTO;
 	}
 }

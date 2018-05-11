@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  * @author gxy_code_tool
  * @date 2018-05-10
  */
-@ApiModel(value = "File", description = "文件信息描述")
+@ApiModel(value = "FileDTO", description = "文件信息描述")
 public class FileDTO {
 
 	@ApiModelProperty("文件编号")

@@ -1,6 +1,5 @@
 package com.friend.projectmanagement.dto;
 
-import com.friend.projectmanagement.domain.Team;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -12,7 +11,7 @@ import java.time.LocalDateTime;
  * @author gxy_code_tool
  * @date 2018-05-10
  */
-@ApiModel(value = "User", description = "用户信息描述")
+@ApiModel(value = "UserDTO", description = "用户信息描述")
 public class UserDTO {
 
 	@ApiModelProperty(notes = "用户编号")
@@ -21,8 +20,8 @@ public class UserDTO {
 	@ApiModelProperty(notes = "用户名称")
 	private String name;
 
-	@ApiModelProperty(notes = "所属团队")
-	private Team team;
+	@ApiModelProperty(notes = "所属团队", dataType = "TeamDTO")
+	private TeamDTO teamDTO;
 
 	@ApiModelProperty(notes = "創建时间")
 
@@ -89,12 +88,12 @@ public class UserDTO {
 	}
 
 
-	public Team getTeam() {
-		return team;
+	public TeamDTO getTeamDTO() {
+		return teamDTO;
 	}
 
-	public void setTeam(Team team) {
-		this.team = team;
+	public void setTeamDTO(TeamDTO teamDTO) {
+		this.teamDTO = teamDTO;
 	}
 
 	public String getPassword() {

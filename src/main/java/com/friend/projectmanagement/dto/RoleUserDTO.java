@@ -1,7 +1,5 @@
 package com.friend.projectmanagement.dto;
 
-import com.friend.projectmanagement.domain.Role;
-import com.friend.projectmanagement.domain.User;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -11,30 +9,28 @@ import io.swagger.annotations.ApiModelProperty;
  * @author gxy_code_tool
  * @date 2018-05-10
  */
-@ApiModel(value = "RoleUser", description = "用户角色关系描述")
+@ApiModel(value = "RoleUserDTO", description = "用户角色关系描述")
 public class RoleUserDTO {
 
-	@ApiModelProperty(notes = "角色")
-	private Role role;
+	@ApiModelProperty(notes = "角色", dataType = "RoleDTO")
+	private RoleDTO roleDTO;
 
-	@ApiModelProperty(notes = "用户")
-	private User user;
+	@ApiModelProperty(notes = "用户", dataType = "UserDTO")
+	private UserDTO userDTO;
 
-
-	public User getUser() {
-		return user;
+	public RoleDTO getRoleDTO() {
+		return roleDTO;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setRoleDTO(RoleDTO roleDTO) {
+		this.roleDTO = roleDTO;
 	}
 
-	public Role getRole() {
-
-		return role;
+	public UserDTO getUserDTO() {
+		return userDTO;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setUserDTO(UserDTO userDTO) {
+		this.userDTO = userDTO;
 	}
 }
