@@ -39,7 +39,7 @@ public interface UserService {
 	 * 获取单条记录
 	 *
 	 * @param userDTO 过滤信息
-	 * @return UserDTO 记录
+	 * @return UserDTO 记录 查询不到返回null
 	 */
 	UserDTO get(UserDTO userDTO);
 
@@ -78,7 +78,7 @@ public interface UserService {
 	 *
 	 * @param username
 	 * @param pwd
-	 * @return
+	 * @return 查询不到时，返回null
 	 */
 	UserDTO findUserByUsernamePassword(String username, String pwd);
 }

@@ -116,6 +116,6 @@
     <select id="selectByUsernamePassword" resultType="User">
         SELECT
         <include refid="userColumns"/>
-        FROM user WHERE name=#{username} AND password=#{password} AND disabled=0
+        FROM user WHERE name=#{username} AND password=#{password} AND disabled=1
     </select>
 </mapper>
