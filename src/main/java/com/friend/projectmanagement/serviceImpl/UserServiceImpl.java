@@ -7,6 +7,7 @@ import com.friend.projectmanagement.dto.TeamDTO;
 import com.friend.projectmanagement.dto.UserDTO;
 import com.friend.projectmanagement.service.TeamService;
 import com.friend.projectmanagement.service.UserService;
+import com.friend.projectmanagement.util.SnowFlakeIdGenerator;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.dozer.DozerBeanMapper;
@@ -77,6 +78,7 @@ public class UserServiceImpl implements UserService {
 			return 0;
 		}
 		User user = dozerBeanMapper.map(userDTO, User.class);
+		user.setId(SnowFlakeIdGenerator.CreateId());
 		user.setDisabled((byte) 0);
 		user.setCreateTime(LocalDateTime.now());
 		return userDao.insert(user);
